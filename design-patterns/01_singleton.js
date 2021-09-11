@@ -38,6 +38,9 @@ class NotSingleton {
   }
 }
 
+
+const notSingleton = new NotSingleton()
+
 module.exports = {
   Singleton,
   NotSingleton

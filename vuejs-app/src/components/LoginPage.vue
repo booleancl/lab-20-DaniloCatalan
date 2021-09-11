@@ -36,7 +36,7 @@
         <input id="password" type="password">
       </div>
 
-      <button type="submit">Ingresar</button>
+      <button type="submit" @click="login">Ingresar</button>
     </form>
   </section>
 </template>
@@ -47,9 +47,14 @@ export default {
 
   methods: {
     created() {
-      console.log('created Login Page')
+      console.log('created Login Page', this.$authService)
     },
-    login () {}
+    login (event) {
+      event.preventDefault();
+      
+      // console.log('test')
+      this.$emit('notify','hola')
+    }
   }
 }
 </script>
