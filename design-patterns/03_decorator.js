@@ -6,7 +6,7 @@
 function logMethodCallDecorator(targetMethod) {
   const decoratedFunction = (...args) => {
     // Real use case: Generate log in Backend Service that gets some sensitive data
-    console.log(`🔎 ¡Important method invoked!: ${targetMethod.name} with arguments ${args}`)
+    console.log(`🔎 ¡Important method invoked!: ${targetMethod.name} with arguments ${JSON.stringify(args) }`)
 
     targetMethod(...args)
   }
@@ -24,14 +24,14 @@ function getBankAccountData(userInfo, options) {
 // logMethodCallDecorator se encarga de "decorar" el método objetivo y darle nueva funcionalidades. En este caso podemos usar el método y aparecerá un log que indicará cada vez que fue llamado el método
 const printNumbersDecorated = logMethodCallDecorator(printNumbersWithArrows)
 
-//printNumbersWithArrows(1, 15, 30, 50, 300, 500)
-//printNumbersDecorated(1, 15, 30, 50, 300, 500)
+//printNumbersWithArrows(1, 15, 30)
+//printNumbersDecorated(1, 15, 30, 50)
 
 // Decorated function
 const getBankAccountDecorated = logMethodCallDecorator(getBankAccountData)
 
 // getBankAccountData({ id: 'b32da2de424367b0'}, { hidePersonalInfo: true })
-// getBankAccountDecorated({ id: 'b32da2de424367b0'}, { hidePersonalInfo: true })
+getBankAccountDecorated({ id: 'b32da2de424367b0'}, { hidePersonalInfo: true })
 
 module.exports = {
   functionsForDecorate: {

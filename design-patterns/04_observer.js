@@ -31,16 +31,21 @@ function run() {
   const clickHandler = (item) => {
     console.log(`fired: ${item}`)
   }
+  // const newSuscriptor = (item)=>{
+  //   console.info(item)
+  // }
 
   const click = new Click()
 
   click.subscribe(clickHandler)
+  //click.subscribe(newSuscriptor)
   click.fire('event #1')
-  click.unsubscribe(clickHandler)
+  // click.unsubscribe(clickHandler)
 
   click.fire('event #2')
-  click.subscribe(clickHandler)
+  // click.subscribe(clickHandler)
   click.fire('event #3')
+  click.fire('event #4')
 }
 
 module.exports = { run }
